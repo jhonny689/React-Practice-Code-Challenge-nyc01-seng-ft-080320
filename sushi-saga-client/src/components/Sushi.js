@@ -3,14 +3,13 @@ import React, { Component, Fragment, useState } from 'react'
 class Sushi extends Component{
   state = {
     sushi: {...this.props.sushi, eaten: false},
-    budget: this.props.sushiBudget
   }
 
   sushiClickHandler = e => {
     console.log("budget=", this.state.bugdet);
-    let newBudget = this.state.budget - this.state.sushi.price;
+    let newBudget = this.props.sushiBudget - this.state.sushi.price;
     console.log("budget after buying the sushi=", newBudget);
-    if(this.state.budget - this.state.sushi.price >= 0){
+    if(this.props.sushiBudget - this.state.sushi.price >= 0){
       debugger;
       this.setState({
         sushi: {
